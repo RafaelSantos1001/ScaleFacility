@@ -1,0 +1,9 @@
+Coloque aqui os arquivos da fonte Montserrat (a mesma usada nas propostas):
+  Montserrat-Light.ttf, Montserrat-Regular.ttf, Montserrat-Bold.ttf,
+  Montserrat-BoldItalic.ttf, Montserrat-LightItalic.ttf
+
+Download gratuito: https://fonts.google.com/specimen/Montserrat
+("Get font" > "Download all" > pasta "static" dentro do .zip)
+
+Se esta pasta ficar vazia, o app tenta baixar a fonte sozinho na primeira vez
+que gerar um PDF. Sem internet, usa Helvetica como reserva.
