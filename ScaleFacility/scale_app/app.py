@@ -26,7 +26,7 @@ with open(os.path.join(PASTA, "assets", "logo.png"), "rb") as f:
 
 st.markdown(f"""
 <style>
-  .block-container {{ padding-top: 1rem; padding-bottom: 4rem; max-width: 720px; }}
+  .block-container {{ padding-top: 4rem; padding-bottom: 4rem; max-width: 720px; }}
   .scale-topo {{ background:#6F3F30; border-radius:14px; padding:18px 20px; margin-bottom:14px;
                  display:flex; align-items:center; gap:16px; }}
   .scale-topo img {{ height:54px; }}
