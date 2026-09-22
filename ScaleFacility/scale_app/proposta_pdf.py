@@ -35,7 +35,7 @@ PASTA_FONTES = os.path.join(PASTA, "assets", "fonts")
 
 # Imagens de fundo de cada página fixa (relativas a assets/pages/)
 FUNDOS = {
-    "capa": "capa.jpg",
+    "capa": "capa.png",
     "prazo": "prazo_bg.jpg",
     "missao": "missao.jpg",
     "importancia": "importancia.png",
@@ -213,7 +213,7 @@ def _camada_capa(tipo, cliente, local):
     t = _ajustar(tipo, "Light", 34.2, 740)
     _texto(c, tipo, 1300, 53, "Light", t, BRANCO, alinhar="dir")
     for bottom, valor in ((446, cliente), (532, local)):
-        _tampar(c, 940, bottom - 26, 1436, bottom + 44, MARROM_CAPA)
+        _tampar(c, 900, bottom - 18, 1440, bottom + 16, MARROM_CAPA)
         valor = valor.upper()
         t = _ajustar(valor, "Light", 18, 470, espaco=0.6)
         _texto(c, valor, 947, bottom, "Light", t, BRANCO, espaco=0.6)
