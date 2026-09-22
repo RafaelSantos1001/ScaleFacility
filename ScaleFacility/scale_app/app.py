@@ -299,6 +299,7 @@ def montar_mensagem():
 
 
 mensagem = st.text_area("Mensagem do WhatsApp (pode editar antes de enviar)", value=montar_mensagem(), height=320)
+st.code(repr(mensagem))
 
 digitos = re.sub(r"\D", "", telefone)
 if len(digitos) in (10, 11):
