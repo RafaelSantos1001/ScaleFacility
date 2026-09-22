@@ -248,6 +248,14 @@ elif st.session_state.get("pdf"):
 # 7. WhatsApp
 # ---------------------------------------------------------------------------
 def montar_mensagem():
+    # Emojis como código (\U....) em vez de caractere literal: assim o
+    # arquivo .py nunca corrompe o emoji, não importa o editor/codificação
+    # usados para salvar no Windows.
+    EMOJI_LOCAL = "\U0001F4CD"      # 📍
+    EMOJI_METRAGEM = "\U0001F4D0"   # 📐
+    EMOJI_PRAZO = "\u23F1"          # ⏱ (sem seletor de variação)
+    EMOJI_VALOR = "\U0001F4B0"      # 💰
+
     primeiro = cliente.strip().split()[0].capitalize()
     titulo = tipo.title().replace("In Loco", "in loco")
     linhas = [
@@ -255,8 +263,8 @@ def montar_mensagem():
         "",
         f"Segue o orçamento da *Scale Levantamentos* para o *{titulo}*:",
         "",
-        f"📍 *Local:* {local.strip()}",
-        f"📐 *Metragem:* {pr.fmt_m2(m)} m²",
+        f"{EMOJI_LOCAL} *Local:* {local.strip()}",
+        f"{EMOJI_METRAGEM} *Metragem:* {pr.fmt_m2(m)} m²",
         "",
         "*Escopo:*",
     ]
@@ -266,10 +274,10 @@ def montar_mensagem():
     linhas.append("")
     if tem_loco:
         visita = f" (necessário {dias_inloco} dia{'s' if dias_inloco > 1 else ''} de visita)" if dias_inloco else ""
-        linhas.append(f"⏱️ *Prazo:* {dias_entrega} dias úteis após o levantamento in loco{visita}")
+        linhas.append(f"{EMOJI_PRAZO} *Prazo:* {dias_entrega} dias úteis após o levantamento in loco{visita}")
     else:
-        linhas.append(f"⏱️ *Prazo:* {dias_entrega} dias úteis após o recebimento da planta e fotos")
-    linhas += [f"💰 *Investimento:* {valor_txt}", "", "*Formas de pagamento:*"]
+        linhas.append(f"{EMOJI_PRAZO} *Prazo:* {dias_entrega} dias úteis após o recebimento da planta e fotos")
+    linhas += [f"{EMOJI_VALOR} *Investimento:* {valor_txt}", "", "*Formas de pagamento:*"]
     if pag_5050:
         linhas.append("• 50% na contratação e 50% na entrega")
     if pag_cartao:
