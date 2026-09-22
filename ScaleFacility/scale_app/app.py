@@ -14,6 +14,11 @@ import streamlit as st
 import precos as pr
 from proposta_pdf import gerar_proposta, usando_montserrat
 
+import sys
+if sys.platform == "win32":
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
+
 PASTA = os.path.dirname(os.path.abspath(__file__))
 
 st.set_page_config(page_title="Orçamentos Scale", page_icon="📐", layout="centered")
