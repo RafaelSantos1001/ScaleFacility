@@ -341,10 +341,6 @@ def gerar_proposta(*, tipo, cliente, local, selecao, valor_txt, dias_entrega,
             pagina.merge_page(_camada_prazo(valor_txt, dias_entrega, dias_inloco, tem_loco, pagamentos))
 
     saida.add_metadata({"/Title": f"Proposta {tipo.title()} - {cliente}", "/Author": "Scale Levantamentos"})
-        saida.add_metadata({"/Title": f"Proposta {tipo.title()} - {cliente}", "/Author": "Scale Levantamentos"})
-    out = io.BytesIO()
-    saida.write(out)
-    return out.getvalue()
     out = io.BytesIO()
     saida.write(out)
     return out.getvalue()
