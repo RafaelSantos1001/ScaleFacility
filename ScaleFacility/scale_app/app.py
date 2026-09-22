@@ -290,7 +290,10 @@ mensagem = st.text_area("Mensagem do WhatsApp (pode editar antes de enviar)", va
 digitos = re.sub(r"\D", "", telefone)
 if len(digitos) in (10, 11):
     digitos = "55" + digitos
-url_wa = f"https://wa.me/{digitos}?text={urllib.parse.quote(mensagem)}"
+# remove o seletor de variação (U+FE0F) de emojis como "⏱️": alguns
+# navegadores/WhatsApp Web não decodificam bem esse caractere dentro do link
+mensagem_url = mensagem.replace("\ufe0f", "")
+url_wa = f"https://wa.me/{digitos}?text={urllib.parse.quote(mensagem_url)}"
 st.link_button("💬 Abrir no WhatsApp", url_wa, type="primary")
 st.caption("O WhatsApp não permite anexar arquivos por link: baixe o PDF acima e anexe na conversa. "
            "Sem número preenchido, o WhatsApp pede para você escolher o contato.")
